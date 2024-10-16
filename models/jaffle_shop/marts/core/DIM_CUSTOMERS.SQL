@@ -1,15 +1,11 @@
+
+
 WITH CUSTOMERS AS (
-    SELECT ID AS CUSTOMER_ID,
-           FIRST_NAME,
-           LAST_NAME
-    FROM RAW.JAFFLE_SHOP.CUSTOMERS
+    select * from {{ref('STG_CUSTOMERS')}}
+    
 ),
 ORDERS AS (
-    SELECT ID AS ORDER_ID,
-           USER_ID AS CUSTOMER_ID,
-           ORDER_DATE,
-           STATUS
-    FROM RAW.JAFFLE_SHOP.ORDERS
+    select * from {{ref('STG_ORDERS')}}
 ),
 CUSTOMER_ORDERS AS (
     SELECT 
